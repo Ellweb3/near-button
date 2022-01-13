@@ -1,0 +1,84 @@
+{
+  "displayName": "nearButton",
+  "defaultWidth": 554,
+  "defaultHeight": 128,
+  "components": "./index.js",
+  "icon": "./example-thumbnail.png",
+  "props": [
+    {
+      "name": "signInTitle",
+      "displayName": "SignIn Title",
+      "type": "text",
+      "default": "Near Connect",
+      "styles": {
+        "fontFamily": "@body",
+        "color": "@contrast:backgroundColor",
+        "fontWeight": "normal",
+        "borderRadius": "18px"
+      }
+    },
+    {
+      "name": "iconIn",
+      "displayName": "SignIn Icon",
+      "type": "icon",
+      "default": "add"
+    },
+    {
+      "name": "signOutTitle",
+      "displayName": "SignOut Title",
+      "type": "text",
+      "default": "Near Connect",
+      "styles": {
+        "fontFamily": "@body",
+        "color": "@contrast:backgroundColor",
+        "fontWeight": "normal"
+      }
+    },
+    {
+      "name": "iconOut",
+      "displayName": "SignOut Icon",
+      "type": "icon",
+      "default": "add"
+    },
+    {
+      "name": "contractName",
+      "displayName": "Contract Name",
+      "type": "text",
+      "default": "one.nfts.testnet"
+    },
+    {
+      "name": "netType",
+      "displayName": "Net Type",
+      "type": "text",
+      "default": "testnet",
+      "control": {
+        "type": "menu",
+        "options": [
+          { "label": "TestNet", "value": "testnet" },
+          { "label": "MainNet", "value": "mainnet" }
+        ]
+      }
+    },
+    {
+      "name": "backgroundColor",
+      "displayName": "Background Color",
+      "type": "color",
+      "default": "@primary"
+    },
+    {
+      "name": "onConnect",
+      "displayName": "Trigger when the connect is on",
+      "type": "action",
+      "arguments": [
+        {
+          "type": "number",
+          "displayName": "Current user balance"
+        },
+        {
+          "type": "text",
+          "displayName": "Account id user"
+        }
+      ]
+    }
+  ]
+}
