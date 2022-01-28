@@ -31,47 +31,38 @@ const NearButton = (props) => {
 			if (walletConnection.getAccountId()) {
 				currentUser = {
 					accountId: walletConnection.getAccountId(),
-					balance: (await walletConnection.account().state()).amount,
+					balance: (await walletConnection.account().state()).amount/1e24,
 				};
 			}
-
+			const account_id = nearConfig.contractName
+			const { code_base64 } = await near.connection.provider.query({
+				account_id,
+				finality: 'final',
+				request_type: 'view_code',
+			});
+			const parsedContract = await parseContract(code_base64);
+			console.log(parsedContract.methodNames);
 			const contract = await new nearAPI.Contract(
 				walletConnection.account(),
 				nearConfig.contractName,
 				{
-					viewMethods: [],
+					viewMethods: parsedContract.methodNames,
 					changeMethods: [],
 					sender: walletConnection.getAccountId(),
 				}
 			);
-			if (contractMethods) {
-				if (contractMethods.length == 0) {
-					(async () => {
-						const account_id = nearConfig.contractName;
-						const { code_base64 } = await near.connection.provider.query({
-							account_id,
-							finality: 'final',
-							request_type: 'view_code',
-						});
-						const newMethods = parseContract(code_base64)
-						newMethods.methodNames.map((method) => {
+			if (contractMethods&&contractMethods.length == 0) {
+						parsedContract.methodNames.map((method) => {
 							addMethod(method)
 						})
-					})();
-				}
-
 			}
 			return { contract, currentUser, nearConfig, walletConnection, near }
-
 		}
+
 		fetchData().then(async ({ contract, currentUser, nearConfig, walletConnection, near }) => {
 			setConnect({ contract, currentUser, nearConfig, walletConnection, near })
 			global.nearConnect = { contract, currentUser, nearConfig, walletConnection, near }
-
-			if (currentUser) {
-
-				// setUser(+currentUser.balance, currentUser.accountId)
-			}
+console.log(await global.nearConnect);
 			return true
 		}
 		).then(async (res) => {
@@ -80,7 +71,10 @@ const NearButton = (props) => {
 			});
 
 			let resultPromise = await promise;
-			if (resultPromise) {
+			if (resultPromise && global.nearConnect.currentUser) {
+				
+
+
 				let balance = global.nearConnect.currentUser.balance
 				let userId = global.nearConnect.currentUser.accountId.toString()
 				if (onConnect && balance && userId) {
