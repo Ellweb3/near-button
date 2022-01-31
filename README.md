@@ -37,4 +37,4 @@ Any sign Near operations in Adalo works after publishing only in full screen mod
 ## Addition components
 1. [Near submit button](https://github.com/Ellweb3/near-submit-button)
 2. [Near status](https://github.com/Ellweb3/near-status)
-3. [Near View NFT button]()
+3. [Near View NFT button](https://github.com/Ellweb3/near-view-nft)
