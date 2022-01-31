@@ -30,6 +30,10 @@ This is custom component for connection with any contract in Near Protocol Block
 4. Now you can set view methods.
 5. Fill free to customize it for your contract
 
+### Notice
+
+Any sign Near operations in Adalo works after publishing only in full screen mode without frames, because an ancestor violates the following Content Security Policy directive: "frame-ancestors 'none'". Full screen mode works only in prod mode.
+
 ## Addition components
 1. [Near submit button](https://github.com/Ellweb3/near-submit-button)
 2. [Near status](https://github.com/Ellweb3/near-status)
