@@ -26,13 +26,14 @@ This is custom component for connection with any contract in Near Protocol Block
 
 1. Create a smart contract using Rust or AssemblyScript or get an example contract from [Near Examples](https://examples.near.org/)
 2. Build & deploy it with your own account.
-3. You need to connect Adalo to contract - you can use my base component [Near Connection](https://github.com/Ellweb3/near-button).
-4. Now you can set view methods.
+3. Now you can connect to your contract.
 5. Fill free to customize it for your contract
 
+### Example video
+[Usage video](https://www.loom.com/share/86d99d35861f4b92800fd069e772ec1c)
 ### Notice
 
-Any sign Near operations in Adalo works after publishing only in full screen mode without frames, because an ancestor violates the following Content Security Policy directive: "frame-ancestors 'none'". Full screen mode works only in prod mode.
+Any sign Near operations in Adalo works after publishing - `npx adalo publish`, only in full screen mode without frames, because an ancestor violates the following Content Security Policy directive: "frame-ancestors 'none'". Full screen mode works only in prod mode.
 
 ## Addition components
 1. [Near submit button](https://github.com/Ellweb3/near-submit-button)
