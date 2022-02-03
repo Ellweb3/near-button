@@ -1,7 +1,7 @@
 {
   "name": "nearbutton",
   "description": "Button",
-  "version": "1.0.32",
+  "version": "1.0.36",
   "main": "index.js",
   "license": "ISC",
   "author": "Ell",
@@ -11,7 +11,7 @@
     "publish": "adalo publish"
   },
   "adalo": {
-    "logo": "./example-logo.png",
+    "logo": "./logo.png",
     "displayName": "nearButton",
     "components": [
       {

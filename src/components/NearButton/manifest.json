@@ -1,7 +1,9 @@
 {
   "displayName": "nearButton",
-  "defaultWidth": 554,
-  "defaultHeight": 128,
+  "defaultWidth": 160,
+  "defaultHeight": 33,
+  "resizeX": true,
+  "resizeY": true,
   "components": "./index.js",
   "icon": "./example-thumbnail.png",
   "props": [
@@ -9,19 +11,8 @@
       "name": "signInTitle",
       "displayName": "SignIn Title",
       "type": "text",
-      "default": "Near Connect",
-      "styles": {
-        "fontFamily": "@body",
-        "color": "@contrast:backgroundColor",
-        "fontWeight": "normal",
-        "borderRadius": "18px"
-      }
-    },
-    {
-      "name": "iconIn",
-      "displayName": "SignIn Icon",
-      "type": "icon",
-      "default": "add"
+      "default": "Near Connect"
+      
     },
     {
       "name": "signOutTitle",
@@ -30,15 +21,9 @@
       "default": "Near Connect",
       "styles": {
         "fontFamily": "@body",
-        "color": "@contrast:backgroundColor",
-        "fontWeight": "normal"
+        "fontWeight": "normal",
+        "color": "@primary"
       }
-    },
-    {
-      "name": "iconOut",
-      "displayName": "SignOut Icon",
-      "type": "icon",
-      "default": "add"
     },
     {
       "name": "contractName",
