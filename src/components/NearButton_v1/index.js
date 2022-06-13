@@ -6,7 +6,7 @@ import getConfig from './config.js';
 import { Button, Text, View, StyleSheet, ActivityIndicator } from 'react-native'
 const { keyStores, KeyPair } = nearAPI
 
-const NearButton = (props) => {
+const NearButton_v1 = (props) => {
 	const { iconIn, iconOut, signInTitle, signOutTitle, backgroundColor, onConnect, netType, contractName, contractMethods, addMethod } = props
 	const [connect, setConnect] = useState(null)
 
@@ -22,6 +22,7 @@ const NearButton = (props) => {
 			const accessKey = KeyPair.fromRandom('ed25519')
 			const keyPair = KeyPair.fromString(accessKey.toString())
 			await keyStore.setKey(netType, contractName, keyPair)
+			
 
 			const near = await nearAPI.connect({ keyStore, ...nearConfig });
 			const walletConnection = new nearAPI.WalletConnection(near);
@@ -29,7 +30,7 @@ const NearButton = (props) => {
 
 			if (walletConnection.getAccountId()) {
 				currentUser = {
-					accountId: walletConnection.getAccountId(),
+					accountId: await walletConnection.getAccountId(),
 					balance: (await walletConnection.account().state()).amount/1e24,
 				};
 			}
@@ -50,8 +51,10 @@ const NearButton = (props) => {
 				}
 			);
 			if (contractMethods&&contractMethods.length == 0) {
-						parsedContract.methodNames.map((method) => {
-							addMethod(method)
+				parsedContract.methodNames.map((method) => {
+					if (addMethod) {
+						addMethod(method)
+					}
 						})
 			}
 			return { contract, currentUser, nearConfig, walletConnection, near }
@@ -98,12 +101,11 @@ const NearButton = (props) => {
 		return (
 			<View>
 				{connect.currentUser ? <Button
-					icon={iconOut ? iconOut : null}
 					color={backgroundColor}
 					title={signOutTitle}
 					onPress={signOut}></Button> :
 					<Button
-						icon={iconIn ? iconIn : null}
+						color={backgroundColor}
 						title={signInTitle}
 						onPress={signIn}></Button>}
 			</View>
@@ -115,4 +117,4 @@ const NearButton = (props) => {
 	}
 }
 
-export default NearButton
+export default NearButton_v1

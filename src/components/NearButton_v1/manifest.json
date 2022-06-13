@@ -1,11 +1,11 @@
 {
-  "displayName": "nearButton",
+  "displayName": "Near Protocol Blockchain connection",
   "defaultWidth": 160,
   "defaultHeight": 33,
   "resizeX": true,
   "resizeY": true,
   "components": "./index.js",
-  "icon": "./example-thumbnail.png",
+  "icon": "./logo.png",
   "props": [
     {
       "name": "signInTitle",

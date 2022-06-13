@@ -1,7 +1,7 @@
 {
-  "name": "nearbutton",
-  "description": "Button",
-  "version": "1.0.36",
+  "name": "near-button-connect",
+  "description": "Near Protocol Blockchain connection button",
+  "version": "1.0.2",
   "main": "index.js",
   "license": "ISC",
   "author": "Ell",
@@ -12,11 +12,11 @@
   },
   "adalo": {
     "logo": "./logo.png",
-    "displayName": "nearButton",
+    "displayName": "nearButton_v1",
     "components": [
       {
-        "name": "NearButton",
-        "manifest": "./src/components/NearButton/manifest.json"
+        "name": "NearButton_v1",
+        "manifest": "./src/components/NearButton_v1/manifest.json"
       }
     ]
   },
